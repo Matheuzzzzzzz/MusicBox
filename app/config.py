@@ -1,21 +1,19 @@
-# app/config.py
 import os
 
 class Config:
     """Configurações da aplicação."""
     
-    # Chave secreta usada para segurança de sessões e cookies.
-    # Em produção, será lida de uma variável de ambiente.
-    SECRET_KEY = os.environ.get('SECRET_KEY') or 'sua-chave-secreta-padrao'
+    # Chave secreta usada para segurança de sessões.
+    # A prioridade é a variável de ambiente, com um fallback local.
+    SECRET_KEY = os.environ.get('sua_senha_segura') or 'sua_senha_segura'
     
     # URL de conexão com o banco de dados.
-    # No Render, a plataforma irá definir a variável DATABASE_URL.
-    # Localmente, a string pode ser ajustada.
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+    # O Render usa a variável DATABASE_URL.
+    SQLALCHEMY_DATABASE_URI = os.environ.get('https://MusicBox-1.onrender.com/callback')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    # Credenciais do Spotify.
-    # Em produção, estas serão lidas das variáveis de ambiente do Render.
+    # Credenciais do Spotify
+    # As variáveis de ambiente do Render têm prioridade.
     SPOTIPY_CLIENT_ID = os.environ.get('SPOTIPY_CLIENT_ID')
     SPOTIPY_CLIENT_SECRET = os.environ.get('SPOTIPY_CLIENT_SECRET')
     REDIRECT_URI = os.environ.get('REDIRECT_URI') or 'http://127.0.0.1:5000/callback'
