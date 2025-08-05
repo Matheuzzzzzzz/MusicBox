@@ -11,7 +11,7 @@ body {
     line-height: 1.6;
 }
 
-/* Layout Principal */
+
 .page-container {
     display: flex;
     flex-direction: column;
@@ -26,7 +26,7 @@ body {
     width: 100%;
 }
 
-/* Cabeçalho */
+
 .header {
     background-color: #000000;
     padding: 1rem 2rem;
@@ -55,7 +55,7 @@ body {
     color: #FFFFFF;
 }
 
-/* Botões */
+
 .btn {
     background-color: #1DB954;
     color: white;
@@ -85,7 +85,7 @@ body {
     color: #FFFFFF;
 }
 
-/* Formulários */
+
 .search-form {
     display: flex;
     gap: 0.5rem;
@@ -112,7 +112,7 @@ body {
     font-weight: bold;
 }
 
-/* Títulos */
+
 h1 {
     font-size: 2.5rem;
     color: #FFFFFF;
@@ -124,7 +124,7 @@ h3 {
     color: #FFFFFF;
 }
 
-/* Listas de Músicas (Resultados e Histórico) */
+
 .track-list {
     list-style: none;
     padding: 0;
@@ -174,7 +174,6 @@ h3 {
     text-align: left;
 }
 
-/* Seção de Histórico */
 .history-item {
     background-color: #282828;
     padding: 1rem;
@@ -201,7 +200,7 @@ h3 {
     border-radius: 5px;
 }
 
-/* Seção da Página de Avaliação (Rate) */
+
 .rating-form-container {
     background-color: #282828;
     padding: 2rem;
@@ -234,7 +233,7 @@ h3 {
     resize: vertical;
 }
 
-/* Estrelas de Avaliação */
+
 .star-rating {
     font-size: 2.5rem;
     color: #535353;
@@ -254,7 +253,7 @@ h3 {
     color: #ffc107;
 }
 
-/* Mensagens de Flash */
+
 .flash-message {
     background-color: #1DB954;
     color: #fff;
@@ -334,16 +333,7 @@ body.light-mode .review-box {
     border-left-color: #1DB954;
 }
 
-/*
-  Paleta de Cores do Spotify
-  Verde: #1DB954
-  Preto: #191414
-  Cinza Escuro: #282828
-  Cinza Claro: #535353
-  Branco: #FFFFFF
-*/
 
-/* Reset e Estilos Gerais */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -357,7 +347,7 @@ body {
     line-height: 1.6;
 }
 
-/* Layout Principal */
+
 .page-container {
     display: flex;
     flex-direction: column;
@@ -372,7 +362,7 @@ body {
     width: 100%;
 }
 
-/* Cabeçalho */
+
 .header {
     background-color: #000000;
     padding: 1rem 2rem;
@@ -401,7 +391,6 @@ body {
     color: #FFFFFF;
 }
 
-/* Botões */
 .btn {
     background-color: #1DB954;
     color: white;
@@ -431,7 +420,6 @@ body {
     color: #FFFFFF;
 }
 
-/* Formulários */
 .search-form {
     display: flex;
     gap: 0.5rem;
@@ -458,7 +446,7 @@ body {
     font-weight: bold;
 }
 
-/* Títulos */
+
 h1 {
     font-size: 2.5rem;
     color: #FFFFFF;
@@ -470,7 +458,6 @@ h3 {
     color: #FFFFFF;
 }
 
-/* Listas de Músicas (Resultados e Histórico) */
 .track-list {
     list-style: none;
     padding: 0;
@@ -520,7 +507,7 @@ h3 {
     text-align: left;
 }
 
-/* Seção de Histórico */
+
 .history-item {
     background-color: #282828;
     padding: 1rem;
@@ -547,7 +534,7 @@ h3 {
     border-radius: 5px;
 }
 
-/* Seção da Página de Avaliação (Rate) */
+
 .rating-form-container {
     background-color: #282828;
     padding: 2rem;
@@ -580,7 +567,7 @@ h3 {
     resize: vertical;
 }
 
-/* Estrelas de Avaliação */
+
 .star-rating {
     font-size: 2.5rem;
     color: #535353;
@@ -597,10 +584,10 @@ h3 {
 
 .star:hover,
 .star.filled {
-    color: #ffc107;
+    color: #1DB954;
 }
 
-/* Mensagens de Flash */
+
 .flash-message {
     background-color: #1DB954;
     color: #fff;

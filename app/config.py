@@ -3,17 +3,13 @@ import os
 class Config:
     """Configurações da aplicação."""
     
-    # Chave secreta usada para segurança de sessões.
-    # A prioridade é a variável de ambiente, com um fallback local.
-    SECRET_KEY = os.environ.get('sua_senha_segura') or 'sua_senha_segura'
     
-    # URL de conexão com o banco de dados.
-    # O Render usa a variável DATABASE_URL.
-    SQLALCHEMY_DATABASE_URI = os.environ.get('https://MusicBox-1.onrender.com/callback')
+    SECRET_KEY = os.environ.get('SECRET_KEY') or 'sua-chave-secreta-padrao'
+    
+   
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://flaskuser:sua_senha_segura@localhost/music_box'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     
-    # Credenciais do Spotify
-    # As variáveis de ambiente do Render têm prioridade.
-    SPOTIPY_CLIENT_ID = os.environ.get('SPOTIPY_CLIENT_ID')
-    SPOTIPY_CLIENT_SECRET = os.environ.get('SPOTIPY_CLIENT_SECRET')
-    REDIRECT_URI = os.environ.get('REDIRECT_URI') or 'http://127.0.0.1:5000/callback'
+    SPOTIPY_CLIENT_ID = '795ced6b66a2492e83af41d542159fdb'
+    SPOTIPY_CLIENT_SECRET = '53bb7256d91e48e9a8d04d41af92fe33'
+    REDIRECT_URI = 'http://127.0.0.1:5000/callback'

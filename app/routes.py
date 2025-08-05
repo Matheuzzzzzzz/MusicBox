@@ -168,15 +168,14 @@ def rate_song(track_id):
 
 @bp.route('/history')
 def rated_songs_history():
-    # Obtém o ID do usuário da sessão
+    
     user_id = session.get('user_id')
     
-    # Se o usuário não estiver logado, redireciona para a página de login
+    
     if not user_id:
         return redirect(url_for('routes.login'))
     
-    # Consulta o banco de dados para encontrar todas as avaliações do usuário
-    # Ordena as avaliações pela data (mais recente primeiro)
+   
     user_ratings = Rating.query.filter_by(user_id=user_id).order_by(Rating.timestamp.desc()).all()
     
     rated_tracks = []
