@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <main>
+        <h1>Meu Perfil</h1>
+        {% if user_data %}
+            <div class="profile-container">
+                {% if user_data.images %}
+                    <img src="{{ user_data.images[0].url }}" alt="Foto de Perfil" class="profile-pic">
+                {% endif %}
+                <h2>{{ user_data.display_name }}</h2>
+                <p><strong>ID:</strong> {{ user_data.id }}</p>
+                <p><strong>Email:</strong> {{ user_data.email }}</p>
+                <p><strong>País:</strong> {{ user_data.country }}</p>
+                <a href="{{ user_data.external_urls.spotify }}" target="_blank" class="btn">Abrir no Spotify</a>
+            </div>
+        {% else %}
+            <p>Não foi possível carregar os dados do perfil.</p>
+        {% endif %}
+        <br>
+        <a href="{{ url_for('routes.index') }}">Voltar para o início</a>
+    </main>
+</body>
+</html>
