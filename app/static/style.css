@@ -250,7 +250,7 @@ h3 {
 
 .star:hover,
 .star.filled {
-    color: #ffc107;
+    color: #1DB954;
 }
 
 
@@ -324,7 +324,7 @@ body.light-mode .star {
 
 body.light-mode .star:hover,
 body.light-mode .star.filled {
-    color: #ffc107;
+    color: #1DB954;
 
 }
 body.light-mode .review-box {
@@ -660,7 +660,7 @@ body.light-mode .star {
 
 body.light-mode .star:hover,
 body.light-mode .star.filled {
-    color: #ffc107;
+    color: #1DB954;
 }
 
 body.light-mode .review-box {
