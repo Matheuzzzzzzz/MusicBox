@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if 'access_token' in session %}
+    <h1>Bem-vindo, {{ session['display_name'] }}!</h1>
+    <p style="text-align: center; color: #b3b3b3;">Use a barra de busca para encontrar e avaliar suas músicas favoritas.</p>
+    <form action="{{ url_for('routes.search_tracks') }}" method="GET" class="search-form">
+    <input type="text" name="query" placeholder="Busque por uma música..." required>
+    <button type="submit">Buscar</button>
+</form>
+    {% else %}
+    <h1>Bem-vindo ao Music Box</h1>
+    <p style="text-align: center; color: #b3b3b3;">Faça login com sua conta do Spotify para começar a avaliar músicas.</p>
+    <div style="text-align: center;">
+        <a href="{{ url_for('routes.login') }}" class="btn">Entrar com Spotify</a>
+    </div>
+    {% endif %}
+{% endblock %}

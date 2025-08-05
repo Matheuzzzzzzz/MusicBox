@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Avaliar Música{% endblock %}
+
+{% block content %}
+    <div class="rating-form-container">
+        <h1>Avaliar: {{ track_name }}</h1>
+        <p>{{ artist_name }}</p>
+        <form action="{{ url_for('routes.rate_song', track_id=track_id) }}" method="POST">
+            <div class="rating-container">
+                <label for="rating-value">Sua avaliação:</label>
+                <div class="star-rating">
+                    {% for i in range(5) %}
+                    <span class="star" onclick="setRating({{ i + 1 }})">&#9733;</span>
+                    {% endfor %}
+                </div>
+                <input type="hidden" name="rating" id="rating-value" value="" required>
+            </div>
+            <div class="review-container">
+                <label for="review">Escreva uma resenha:</label>
+                <textarea name="review" id="review" rows="5" placeholder="O que você achou desta música?"></textarea>
+            </div>
+            <button type="submit" class="btn">Salvar Avaliação</button>
+        </form>
+    </div>
+    <script>
+        function setRating(rating) {
+            document.getElementById('rating-value').value = rating;
+            const stars = document.querySelectorAll('.star-rating .star');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('filled');
+                } else {
+                    star.classList.remove('filled');
+                }
+            });
+        }
+    </script>
+{% endblock %}

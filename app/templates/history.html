@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Histórico de Avaliações{% endblock %}
+
+{% block content %}
+    <h1>Meu Histórico de Avaliações</h1>
+    {% if rated_tracks %}
+    <ul class="track-list">
+        {% for track in rated_tracks %}
+        <li class="history-item">
+            <h3>{{ track.track_name }}</h3>
+            <p><strong>Artista:</strong> {{ track.artist_name }}</p>
+            <p><strong>Sua Nota:</strong> {{ track.rating_value }}</p>
+            {% if track.review %}
+            <div class="review-box">
+                <strong>Sua Resenha:</strong>
+                <p>{{ track.review }}</p>
+            </div>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p style="text-align: center;">Você ainda não avaliou nenhuma música.</p>
+    {% endif %}
+{% endblock %}

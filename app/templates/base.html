@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Music Box{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="page-container">
+    <header class="header">
+        <a href="{{ url_for('routes.index') }}" class="logo">Music Box</a>
+        <nav class="nav">
+            <button id="theme-toggle" class="btn btn-secondary">Modo Claro</button>
+            <a href="{{ url_for('routes.index') }}">Início</a>
+            {% if 'access_token' in session %}
+            <a href="{{ url_for('routes.rated_songs_history') }}">Histórico</a>
+            <a href="{{ url_for('routes.logout') }}">Sair</a>
+            {% else %}
+            <a href="{{ url_for('routes.login') }}" class="btn">Entrar com Spotify</a>
+            {% endif %}
+        </nav>
+    </header>
+    
+    <main class="main-content">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="flash-message">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <script>
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            const isLight = body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLight ? 'light' : 'dark');
+            toggleButton.textContent = isLight ? 'Modo Escuro' : 'Modo Claro';
+        });
+
+        // Carrega o tema salvo
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.add('light-mode');
+            toggleButton.textContent = 'Modo Escuro';
+        }
+    </script>
+</body>
+</html>

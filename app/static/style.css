@@ -1,0 +1,792 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #191414;
+    color: #b3b3b3;
+    line-height: 1.6;
+}
+
+/* Layout Principal */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.nav a {
+    color: #b3b3b3;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav a:hover {
+    color: #FFFFFF;
+}
+
+/* Botões */
+.btn {
+    background-color: #1DB954;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 500px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #1ED760;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #b3b3b3;
+    color: #b3b3b3;
+}
+
+.btn-secondary:hover {
+    background-color: #535353;
+    color: #FFFFFF;
+}
+
+/* Formulários */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #535353;
+    background-color: #282828;
+    color: #ffffff;
+    border-radius: 500px;
+}
+
+.search-form button {
+    padding: 0.8rem 1.5rem;
+    background-color: #1DB954;
+    color: #ffffff;
+    border: none;
+    border-radius: 500px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+/* Listas de Músicas (Resultados e Histórico) */
+.track-list {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item {
+    background-color: #282828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.track-item:hover {
+    background-color: #3b3b3b;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.album-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.text-info {
+    flex-grow: 1;
+}
+
+.text-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.text-info p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Seção de Histórico */
+.history-item {
+    background-color: #282828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.history-item p {
+    color: #b3b3b3;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    text-align: left;
+}
+
+.history-item strong {
+    color: #FFFFFF;
+}
+
+.review-box {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    background-color: #1a1a1a;
+    border-left: 3px solid #1DB954;
+    border-radius: 5px;
+}
+
+/* Seção da Página de Avaliação (Rate) */
+.rating-form-container {
+    background-color: #282828;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.rating-form-container h1 {
+    color: #1DB954;
+    margin-bottom: 1.5rem;
+}
+
+.rating-form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.rating-form-container textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #191414;
+    border: 1px solid #535353;
+    color: #FFFFFF;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    resize: vertical;
+}
+
+/* Estrelas de Avaliação */
+.star-rating {
+    font-size: 2.5rem;
+    color: #535353;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 0.2s;
+    margin: 0 0.2rem;
+}
+
+.star:hover,
+.star.filled {
+    color: #ffc107;
+}
+
+/* Mensagens de Flash */
+.flash-message {
+    background-color: #1DB954;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+body.light-mode {
+    background-color: #f0f2f5;
+    color: #191414;
+}
+
+body.light-mode .header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .logo,
+body.light-mode .nav a {
+    color: #191414;
+}
+
+body.light-mode .nav a:hover,
+body.light-mode h1,
+body.light-mode h3,
+body.light-mode strong {
+    color: #1DB954;
+}
+
+body.light-mode .btn-secondary {
+    border-color: #191414;
+    color: #191414;
+}
+
+body.light-mode .btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+body.light-mode .search-form input,
+body.light-mode .track-item,
+body.light-mode .rating-form-container,
+body.light-mode .history-item {
+    background-color: #ffffff;
+    border-color: #ccc;
+    color: #191414;
+}
+
+body.light-mode .track-item:hover,
+body.light-mode .rating-form-container,
+body.light-mode .history-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .search-form input {
+    color: #191414;
+}
+
+body.light-mode .flash-message {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+body.light-mode .star {
+    color: #999;
+}
+
+body.light-mode .star:hover,
+body.light-mode .star.filled {
+    color: #ffc107;
+
+}
+body.light-mode .review-box {
+    background-color: #fff;
+    color: #191414;
+    border-left-color: #1DB954;
+}
+
+/*
+  Paleta de Cores do Spotify
+  Verde: #1DB954
+  Preto: #191414
+  Cinza Escuro: #282828
+  Cinza Claro: #535353
+  Branco: #FFFFFF
+*/
+
+/* Reset e Estilos Gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #191414;
+    color: #b3b3b3;
+    line-height: 1.6;
+}
+
+/* Layout Principal */
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #000000;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1DB954;
+    text-decoration: none;
+}
+
+.nav a {
+    color: #b3b3b3;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-size: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.nav a:hover {
+    color: #FFFFFF;
+}
+
+/* Botões */
+.btn {
+    background-color: #1DB954;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 500px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #1ED760;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid #b3b3b3;
+    color: #b3b3b3;
+}
+
+.btn-secondary:hover {
+    background-color: #535353;
+    color: #FFFFFF;
+}
+
+/* Formulários */
+.search-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 500px;
+    margin: 2rem auto;
+}
+
+.search-form input {
+    flex-grow: 1;
+    padding: 0.8rem 1rem;
+    border: 1px solid #535353;
+    background-color: #282828;
+    color: #ffffff;
+    border-radius: 500px;
+}
+
+.search-form button {
+    padding: 0.8rem 1.5rem;
+    background-color: #1DB954;
+    color: #ffffff;
+    border: none;
+    border-radius: 500px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.5rem;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    color: #FFFFFF;
+}
+
+/* Listas de Músicas (Resultados e Histórico) */
+.track-list {
+    list-style: none;
+    padding: 0;
+}
+
+.track-item {
+    background-color: #282828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.track-item:hover {
+    background-color: #3b3b3b;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+
+.album-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.text-info {
+    flex-grow: 1;
+}
+
+.text-info h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.text-info p {
+    margin: 0;
+    color: #b3b3b3;
+    font-size: 0.9rem;
+    text-align: left;
+}
+
+/* Seção de Histórico */
+.history-item {
+    background-color: #282828;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+}
+
+.history-item p {
+    color: #b3b3b3;
+    font-size: 1rem;
+    margin: 0.2rem 0;
+    text-align: left;
+}
+
+.history-item strong {
+    color: #FFFFFF;
+}
+
+.review-box {
+    margin-top: 0.5rem;
+    padding: 0.8rem;
+    background-color: #1a1a1a;
+    border-left: 3px solid #1DB954;
+    border-radius: 5px;
+}
+
+/* Seção da Página de Avaliação (Rate) */
+.rating-form-container {
+    background-color: #282828;
+    padding: 2rem;
+    border-radius: 10px;
+    max-width: 500px;
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.rating-form-container h1 {
+    color: #1DB954;
+    margin-bottom: 1.5rem;
+}
+
+.rating-form-container label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.rating-form-container textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #191414;
+    border: 1px solid #535353;
+    color: #FFFFFF;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    resize: vertical;
+}
+
+/* Estrelas de Avaliação */
+.star-rating {
+    font-size: 2.5rem;
+    color: #535353;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 0.2s;
+    margin: 0 0.2rem;
+}
+
+.star:hover,
+.star.filled {
+    color: #ffc107;
+}
+
+/* Mensagens de Flash */
+.flash-message {
+    background-color: #1DB954;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+/* --- Modo Claro --- */
+body.light-mode {
+    background-color: #f0f2f5;
+    color: #191414;
+}
+
+body.light-mode .header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .logo,
+body.light-mode .nav a {
+    color: #191414;
+}
+
+body.light-mode .nav a:hover,
+body.light-mode h1,
+body.light-mode h3,
+body.light-mode strong {
+    color: #1DB954;
+}
+
+body.light-mode .btn-secondary {
+    border-color: #191414;
+    color: #191414;
+}
+
+body.light-mode .btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+body.light-mode .search-form input,
+body.light-mode .track-item,
+body.light-mode .rating-form-container,
+body.light-mode .history-item {
+    background-color: #ffffff;
+    border-color: #ccc;
+    color: #191414;
+}
+
+body.light-mode .track-item:hover,
+body.light-mode .rating-form-container,
+body.light-mode .history-item {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .search-form input {
+    color: #191414;
+}
+
+body.light-mode .flash-message {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+body.light-mode .star {
+    color: #999;
+}
+
+body.light-mode .star:hover,
+body.light-mode .star.filled {
+    color: #ffc107;
+}
+
+body.light-mode .review-box {
+    background-color: #e0e0e0;
+    color: #191414;
+    border-left-color: #1DB954;
+}
+body.light-mode .rating-form-container textarea {
+    background-color: #f0f2f5;
+    color: #191414;
+    border-color: #ccc;
+}
+
+/* --- Responsividade --- */
+
+/* Para telas de celular (até 600px) */
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav a,
+    .nav button {
+        margin: 0;
+    }
+
+    .main-content {
+        padding: 0 1rem;
+        margin: 1rem auto;
+    }
+
+    .search-form {
+        flex-direction: column;
+    }
+
+    .track-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .track-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .album-cover {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Para tablets (601px a 992px) */
+@media screen and (min-width: 601px) and (max-width: 992px) {
+    .main-content {
+        max-width: 768px;
+        padding: 0 2rem;
+        margin: 2rem auto;
+    }
+
+    .header {
+        padding: 1rem 2rem;
+    }
+
+    .nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .search-form {
+        max-width: 600px;
+    }
+
+    .track-item {
+        flex-direction: row;
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .track-info {
+        flex-direction: row;
+    }
+
+    .album-cover {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Para desktops (993px a 1200px) */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .main-content {
+        max-width: 960px;
+    }
+
+    .header {
+        padding: 1.5rem 3rem;
+    }
+
+    .nav a {
+        margin-left: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .search-form {
+        max-width: 700px;
+    }
+}
